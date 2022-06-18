@@ -1,0 +1,70 @@
+package bankapp;
+
+import java.util.Scanner;
+import java.awt.event.*;
+import javax.swing.*;
+
+public class BankApp {
+
+  
+    public static void main(String[] args) {
+        Scanner s=new Scanner(System.in);
+        String name;
+        String b;
+        double balance;
+        double withdraw;
+        double deposit;
+        //Test1
+        System.out.println("Bank System App -ONLINE");
+        System.out.println("===============\n");
+        //System.out.print("Enter name of Account owner ===> ");
+        //name=s.nextLine();
+        name=JOptionPane.showInputDialog("\"Enter name of Account owner ===> \"");
+        BankAccount b1=new BankAccount(name);
+        //Test constructor
+        System.out.println("\nAccount owner ==> "+b1.GetName());
+        System.out.println("Balance ==> "+b1.GetBalance());
+        //Test setBalance
+        //System.out.print("Enter Initial Balance ==> ");
+        //balance=s.nextDouble();
+        //b=JOptionPane.showInputDialog("\"Enter Initial Balance ===> \"");
+        balance=Double.parseDouble(JOptionPane.showInputDialog("Enter Initial Balance ===> "));
+        b1.SetBalance(balance);
+        System.out.println("Balance after Initial Deposit "+b1.GetBalance());
+        //Test Withdraw
+        System.out.print("Withdraw - How much do you want to withdraw ==> ");
+        withdraw=s.nextDouble();
+        b1.Withdraw(withdraw);
+        System.out.println("Balance after withdraw?"+b1.GetBalance());
+        //Test Deposit
+        System.out.print("Deposit - How much do you want to deposit ==> ");
+        deposit=s.nextDouble();
+        b1.Deposit(deposit);
+        System.out.println("Balance after Deposit?"+b1.GetBalance());
+        //
+        //Test 2
+        //
+        s.nextLine();
+        System.out.println("\n\nBank System App -Branch Office");
+        System.out.println("===============\n");
+        System.out.print("Enter name of Account owner ===> ");
+        name=s.nextLine();
+        System.out.print("Enter Initial Balance ==> ");
+        balance=s.nextDouble();
+        BankAccount b2=new BankAccount(name, balance);
+        //Test constructor
+        System.out.println("\nAccount owner ==> "+b2.GetName());
+        System.out.println("Balance ==> "+b2.GetBalance());
+        //Test Withdraw
+        System.out.print("Withdraw - How much do you want to withdraw ==> ");
+        withdraw=s.nextDouble();
+        b1.Withdraw(withdraw);
+        System.out.println("Balance after withdraw?"+b2.GetBalance());
+        //Test Deposit
+        System.out.print("Deposit - How much do you want to deposit ==> ");
+        deposit=s.nextDouble();
+        b1.Deposit(deposit);
+        System.out.println("Balance after Deposit?"+b2.GetBalance());
+    }
+}
+
